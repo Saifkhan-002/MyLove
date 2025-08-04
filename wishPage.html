@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wish Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            text-align: center;
+            color: white;
+            background: linear-gradient(to bottom, black, red);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        section h1{
+            margin-top: 39px;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .age-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 21px;
+            margin-top: 20px;
+          
+        }
+
+        .age-box {
+            margin: 23px;
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+        }
+
+        .age-box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px #f25e8f;
+            color: black;
+            font-weight: bolder;
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 55px;
+            margin-top: 50px;
+        }
+
+        .photo-gallery img {
+            width: 250px;
+            height: 240px;
+            border-radius: 21px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4 ease, box-shadow 0.3s ease;
+        }
+
+        .photo-gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .led-banner {
+            border: 2px solid #fff;
+            margin-top: 50px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            background-color: black;
+            color: #ff2770;
+            border-radius: 21px;
+            width: 100%;
+            height: 80px;
+            box-shadow: 0 0 15px red;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .led-banner span {
+            display: inline-block;
+            position: absolute;
+            white-space: nowrap;
+            will-change: transform;
+            animation: marquee 8s linear infinite alternate-reverse;
+        
+        }
+            
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100%{
+                transform: translateX(-200%);
+            }
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>&#x1F389;Heya Wassup?? &#x1F389;</h1>
+        <div class="age-container" id="age-container"> </div>
+        <!-- <div class="age-box"></div> -->
+        <div class="photo-gallery">
+            <img src="bear1.jpeg" alt="Photo 1">
+            <img src="bear1.jpeg" alt="">
+            <img src="bear1.jpeg" alt="">
+            <img src="bear1.jpeg" alt="">
+        </div>
+        <div class="led-banner">
+            <span  id="name-text">Yeahh Fine...&#128152</span>
+        </div>
+
+        <script>
+            function calculateAge(){
+                const birthDate = new Date('2004-03-04'); // Replace with your birth date
+                const today = new Date();
+                const diff = today - birthDate;
+                const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25)); // Approximate age in years
+                const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30)); // Approximate months
+                const weeks = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24 * 7)); // Approximate weeks
+                const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24)); // Remaining days
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); // Remaining hours
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)); // Remaining minutes
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000); // Remaining seconds
+            
+
+            const timeUnits = [
+                { label: 'Years', value: years },
+                { label: 'Months', value: months },
+                { label: 'Weeks', value: weeks },
+                { label: 'Days', value: days },
+                { label: 'Hours', value: hours },
+                { label: 'Minutes', value: minutes },
+                { label: 'Seconds', value: seconds }
+            ];
+
+            const container = document.getElementById("age-container");
+            container.innerHTML = ''; // Clear previous content
+            timeUnits.forEach(unit => {
+                const div = document.createElement("div");
+                div.classList.add("age-box");
+                div.innerHTML = `${unit.value} <br> ${unit.label}`;
+                container.appendChild(div);
+            });
+        }
+            setInterval(calculateAge, 1000); // Update every second
+            calculateAge();           
+        </script>
+    </section>
+</body>
+
+</html>

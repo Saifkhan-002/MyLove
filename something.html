@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>something</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /*.emoji-img {
+            width: 40px;
+            height: 40px;
+            background-image: url('https://twemoji.maxcdn.com/v/latest/svg/1f680.svg');
+            
+            background-size: contain;
+            background-repeat: no-repeat;
+        }*/
+        .emoji-cont {
+           display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+
+        }
+
+@keyframes glowScale {
+  0% {
+    transform: scale(1);
+    text-shadow: 0 0 10px #ff0, 0 0 20px #f0f, 0 0 30px #0ff;
+  }
+  50% {
+    transform: scale(1.2);
+    text-shadow: 0 0 20px #ff0, 0 0 30px #f0f, 0 0 40px #0ff;
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: 0 0 10px #ff0, 0 0 20px #f0f, 0 0 30px #0ff;
+  }
+}
+
+        .emojis {           
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: glowScale 1.5s infinite ease-in-out;
+            transition: transform 0.3s;
+            text-shadow: 0 0 10px #ff0, 0 0 20px #f0f, 0 0 30px #0ff;
+        }
+       
+        .btn {
+      position: relative;
+      background: transparent;
+      border-radius: 41px;
+      cursor: pointer;
+      font-weight: 600;
+      border: 2px solid #ff2770;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 300%;
+      background: linear-gradient(  #ff4d88,#29244a,   #ff4d88,  #ff4d88);
+      top: -100%;
+      left: 0;
+      z-index: -1;
+      transition: .5s;
+    }
+
+    .btn:hover::before {
+      top: 0;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-[#ff80aa] w-[100%] h-[100vh]">
+        <div class="emoji-cont">
+            <!-- <span class="emojis empo1 text-[40px]">&#128151;</span>
+            <span class="emojis empo2 text-[40px]">&#128525;</span>
+            <span class="emojis empo3 text-[40px]">&#129505;</span>
+            <span class="emojis empo4 text-[40px]">&#11088;</span>
+            <span class="emojis empo5 text-[40px]">&#128640;</span>
+            <span class="emojis empo6 text-[40px]">&#128158;</span>    
+            <span class="emojis empo7 text-[40px]">&#128152;</span>
+            <span class="emojis empo8 text-[40px]">&#128158;</span>   
+            <span class="emojis empo9 text-[40px]">&#128151;</span>
+            <span class="emojis empo10 text-[40px]">&#128149;</span>
+            <span class="emojis empo11 text-[40px]">&#129505;</span>
+            <span class="emojis empo12 text-[40px]">&#11088;</span>
+            <span class="emojis empo13 text-[40px]">&#128640;</span>
+            <span class="emojis empo14 text-[40px]">&#128150;</span>   
+            <span class="emojis empo15 text-[40px]">&#128525;</span>
+            <span class="emojis empo16 text-[40px]">&#128525;</span>
+            <span class="emojis empo17 text-[40px]">&#129505;</span>
+            <span class="emojis empo001 text-[40px]">&#128157;</span> -->
+
+            <span class="emojis empo1 absolute top-[20px] sm:top-[50px] left-[7%] text-[19px] sm:text-[40px]">&#128152;</span>
+            <span class="emojis empo2 absolute top-[32px] left-[34%] text-[19px] sm:text-[40px]">&#128525;</span>
+            <span class="emojis empo3 absolute top-[390px] sm:top-[12px] left-[35%] sm:left-[64%] text-[19px] sm:text-[40px]">&#128151;</span>
+            <span class="emojis empo4 absolute top-[14px] sm:top-[50px] left-[70%] sm:left-[81%] sm:left-[85%] text-[19px] sm:text-[40px]">&#11088;</span>
+            <span class="emojis empo5 absolute top-[118px] sm:top-[200px] left-[17%] text-[19px] sm:text-[40px]">&#128640;</span>
+            <span class="emojis empo6 absolute top-[135px] sm:top-[200px] left-[62%] sm:left-[48%] text-[19px] sm:text-[40px]">&#128158;</span>
+            <span class="emojis empo7 absolute top-[120px] sm:top-[200px] left-[91%] text-[19px] sm:text-[40px]">&#128152;</span>
+            <span class="emojis empo8 absolute top-[270px] left-[5%] text-[19px] sm:text-[40px]">&#128158;</span>
+            <span class="emojis empo9 absolute top-[350px] sm:top-[410px] left-[21%] sm:left-[12%] text-[19px] sm:text-[40px]">&#128151;</span>
+            <span class="emojis empo10 absolute top-[340px] sm:top-[380px] left-[82%] text-[19px] sm:text-[40px]">&#128149;</span>
+            <span class="emojis empo11 absolute top-[400px] sm:top-[550px] left-[3%] sm:left-[5%] text-[19px] sm:text-[40px]">&#129505;</span>
+            <span class="emojis empo12 absolute top-[180px] sm:top-[320px] left-[10%] sm:left-[26%] sm:left-[30%] text-[19px] sm:text-[40px]">&#11088;</span>
+            <span class="emojis empo13 absolute top-[220px] sm:top-[530px] left-[75%] sm:left-[63%] text-[19px] sm:text-[40px]">&#128640;</span>
+            <span class="emojis empo14 absolute top-[410px] sm:top-[550px] left-[89%] sm:left-[92%] text-[19px] sm:text-[40px]">&#128150;</span>
+            <span class="emojis empo15 absolute top-[440px] sm:top-[650px] left-[25%] sm:left-[15%] text-[19px] sm:text-[40px]">&#128525;</span>
+            <span class="emojis empo16 absolute top-[430px] sm:top-[650px] left-[62%] sm:left-[78%] text-[19px] sm:text-[40px]">&#128152;</span>
+            <span class="emojis empo17 absolute top-[360px] sm:top-[620px] left-[50%] sm:left-[42%] text-[19px] sm:text-[40px]">&#129505;</span>
+            <span class="emojis empo001 absolute top-[37px] sm:top-[77px] left-[85.5%] sm:left-[74.2%] text-[30px] sm:text-[40px] z-20">&#128157;</span>
+            <span class="emojis empo001 absolute top-[309px] sm:top-[505px] left-[82.6%] sm:left-[66.5%] text-[30px] sm:text-[40px] z-20">&#128157;</span>
+
+        </div>
+         <div class="text-white ml-[30px] sm:ml-[370px] mt-[50px] sm:mt-[110px] sm:text-[50px] font-bold">
+            <span class="emoji text-[40px]"></span>
+            <button  class="btn p-[17px] sm:p-[45px] border-none bg-[#ffb3cc] rounded-[23px] sm:text-[39px] text-[#fff] font-bold">
+               	&#129402;It's a Special Day for me.... &#128073;&#128072;&#x1F49E;</button>
+
+
+        </div>
+        <div class="ml-[70px] sm:ml-[570px] mt-[23px] sm:mt-[30px] ">
+            <img src="teddygif01.gif" alt="" class="w-[200px] sm:w-[350px] h-[190px] sm:h-[250px] drop-shadow-[0_0_30px_#ff0055] rounded-[12px]">
+        </div>
+        
+        <div class="text-white ml-[39px] sm:ml-[380px] text-[18px] sm:text-[50px] font-bold">
+            
+            <button  class="btn p-[13px] sm:p-[30px] border-none bg-[#ffb3cc] rounded-[23px] text-[16px] sm:text-[28px] sm:ml-[120px] text-[#fff] font-bold">
+            <a href="wishPage.html"> &#128513;Ruko Ruko Abhi or Bhi Hai...&#129325;&#129325;</a></button>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<!--Emojis Codes
+&#129505; -> orange heart
+&#128525; -> Heart Eyes
+ &#128526; ->Chashme vala
+ &#x1F382; -> Birthday Cake
+    &#128151; -> Heart
+    &#128150; -> Heart with Arrow
+    &#11088; -> Star
+    &#128139; -> kiss
+    &#128171; -> shine ring
+    &#129303; -> Party Popper
+    &#128640; -> Rocket
+    &#x1F973; -> Party Face
+    &#x1F389; -> Party Popper
+    
+    🎉🔥
+      🚀
+      
+  -->
