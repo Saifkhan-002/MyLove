@@ -13,13 +13,13 @@
             background: linear-gradient(to top, #4b0404, #f9588e, #ff2770, #9c0f3e);
             font-family: Arial, sans-serif;
         }
-        .age-container {
+        /*.age-container {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
             flex-direction: column;
-        }
+        }*/
 
         .age-box {
             background: rgba(255, 255, 255, 0.2);
@@ -95,12 +95,12 @@
 
     <section class="py-[15px] w-[100%]">
         <div class="">
-            <div class=" box-shadow-[0_0_20px_blue] w-[90%] mx-auto rounded-[12px] ">
+            <div class="mt-[18px] box-shadow-[0_0_20px_blue] w-[90%] mx-auto rounded-[12px] ">
                 <h1 class="text-[35px] sm:text-[48px] text-black font-bold">&#x1F389;Happy Birthday &#x1F389;</h1>
             </div>
 
 
-            <div class="age-container gap-5 sm:gap-18" id="age-container">
+            <div class="age-container my-[23px] flex flex-col sm:flex-row  justify-center items-center gap-5 sm:gap-18" id="age-container">
                 <div class="age-box w-[135px] sm:w-[120px] h-[130px] sm:h-[120px] m-[4px] sm:m-[23px] text-[28px] sm:text-[25px]" id="years-box"></div>
                 <div class="age-box w-[135px] sm:w-[120px] h-[130px] sm:h-[120px] m-[4px] sm:m-[23px] text-[28px] sm:text-[25px]" id="months-box"></div>
                 <div class="age-box w-[135px] sm:w-[120px] h-[130px] sm:h-[120px] m-[4px] sm:m-[23px] text-[28px] sm:text-[25px]" id="weeks-box"></div>
@@ -111,30 +111,30 @@
             </div>
 
 
-            <div class="photo-gallery my-5 flex flex-wrap gap-10 sm:gap-5 justify-center">
-                <img class=" w-[280px] sm:w-[230px] h-[240px] sm:h-[240px]" src="bear1.jpeg" alt="Photo 1">
-                <img class=" w-[280px] sm:w-[230px] h-[240px] sm:h-[240px]" src="bear1.jpeg" alt="Photo 2">
-                <img class=" w-[280px] sm:w-[230px] h-[240px] sm:h-[240px]" src="bear1.jpeg" alt="Photo 3">
-                <img class=" w-[280px] sm:w-[230px] h-[240px] sm:h-[240px]" src="bear1.jpeg" alt="Photo 4">
-                <img class=" w-[280px] sm:w-[230px] h-[240px] sm:h-[240px]" src="bear1.jpeg" alt="Photo 3">
-                <img class=" w-[280px] sm:w-[230px] h-[240px] sm:h-[240px]" src="bear1.jpeg" alt="Photo 4">
+            <div class="photo-gallery my-5 grid sm:grid-cols-3 ml-[64px] gap-5 sm:gap-10">
+                <img class=" w-[280px] sm:w-[390px] h-[240px] sm:h-[300px]" src="bear1.jpeg" alt="Photo 1">
+                <img class=" w-[280px] sm:w-[390px] h-[240px] sm:h-[300px]" src="bear1.jpeg" alt="Photo 2">
+                <img class=" w-[280px] sm:w-[390px] h-[240px] sm:h-[300px]" src="bear1.jpeg" alt="Photo 3">
+                <img class=" w-[280px] sm:w-[390px] h-[240px] sm:h-[300px]" src="bear1.jpeg" alt="Photo 4">
+                <img class=" w-[280px] sm:w-[390px] h-[240px] sm:h-[300px]" src="bear1.jpeg" alt="Photo 3">
+                <img class=" w-[280px] sm:w-[390px] h-[240px] sm:h-[300px]" src="bear1.jpeg" alt="Photo 4">
                 <!-- <div class="border-2 w-[240px] sm:h-[200px]"></div> -->
 
             </div>
 
-            <div class="led-banner mt-[40px] text-[35px] h-[60px] font-bold text-center">
-                <span id="name-text">Yeahh Fine...&#128152</span>
+            <div class="led-banner h-[60px] sm:h-[90px] mt-[50px] text-[25px] sm:text-[39px]  font-bold ">
+                <span class="mt-[12px]">Yeahh Fine...&#128152</span>
             </div>
-            <div class="my-[18px] w-[80%] mx-[auto] ">
+            <div class="my-[32px] w-[50%] sm:w-[80%] mx-[auto] ">
+                <button
+                    class="text-[18px] sm:text-[30px] px-[18px] sm:px-[32px] py-[14px] bg-[rgba(0,0,0,0.5)] drop-shadow-[0_0_12px_blue] rounded-[22px] hover:text-[#ff2770] font-bold transform transition-transform duration-200 hover:scale-110">
+                    Let's Celebrate it</button>
+            </div>
+            <!-- <div class="my-[18px] w-[80%] mx-[auto] ">
                 <button
                     class="text-[30px] px-[32px] py-[14px] bg-[rgba(0,0,0,0.5)] drop-shadow-[0_0_12px_blue] rounded-[22px] hover:text-[#ff2770] font-bold transform transition-transform duration-200 hover:scale-110">
                     Let's Celebrate it</button>
-            </div>
-            <div class="my-[18px] w-[80%] mx-[auto] ">
-                <button
-                    class="text-[30px] px-[32px] py-[14px] bg-[rgba(0,0,0,0.5)] drop-shadow-[0_0_12px_blue] rounded-[22px] hover:text-[#ff2770] font-bold transform transition-transform duration-200 hover:scale-110">
-                    Let's Celebrate it</button>
-            </div>
+            </div> -->
         </div>
     </section>
 
