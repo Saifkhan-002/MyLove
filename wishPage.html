@@ -10,20 +10,17 @@
         body {
             text-align: center;
             color: white;
-            background: linear-gradient(to top, #230202, #ff2770, #b3003b);
+            background: linear-gradient(to top, #4b0404, #f9588e, #ff2770, #9c0f3e);
             font-family: Arial, sans-serif;
-        }
-
-        section h1 {
-            font-weight: bold;
-            color: black;
         }
         .age-container {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
+            flex-direction: column;
         }
+
         .age-box {
             background: rgba(255, 255, 255, 0.2);
             border-radius: 50%;
@@ -34,6 +31,7 @@
             box-shadow: 0 4px 10px rgb(0, 0, 88);
             transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
         }
+
         .age-box:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 15px #f25e8f;
@@ -41,6 +39,7 @@
             font-weight: bold;
             background: rgba(233, 227, 227, 0.4);
         }
+
         /*.photo-gallery {
             
 
@@ -53,10 +52,12 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             transition: transform 0.4 ease, box-shadow 0.3s ease;
         }
+
         .photo-gallery img:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
         }
+
         .led-banner {
             background-color: black;
             color: #ff2770;
@@ -92,38 +93,31 @@
 
 <body>
 
-    <section class="py-[15px] h-[100vh] w-[100%]">
-        <div class="h-[1000px]">
-            <div class="  box-shadow-[0_0_20px_blue] w-[90%] mx-auto rounded-[12px] ">
-                <h1 class="text-[34px] sm:text-[48px] text-white">&#x1F389;Happy Birthday &#x1F389;</h1>
+    <section class="py-[15px] w-[100%]">
+        <div class="">
+            <div class=" box-shadow-[0_0_20px_blue] w-[90%] mx-auto rounded-[12px] ">
+                <h1 class="text-[35px] sm:text-[48px] text-black font-bold">&#x1F389;Happy Birthday &#x1F389;</h1>
             </div>
 
 
             <div class="age-container gap-5 sm:gap-18" id="age-container">
-                <div class="age-box w-[80px] sm:w-[120px] h-[80px] sm:h-[120px] m-[5px] sm:m-[23px] text-[15px] sm:text-[25px]"
-                    id="years-box"></div>
-                <div class="age-box w-[80px] sm:w-[120px] h-[80px] sm:h-[120px] m-[5px] sm:m-[23px] text-[15px] sm:text-[25px]"
-                    id="months-box"></div>
-                <div class="age-box w-[80px] sm:w-[120px] h-[80px] sm:h-[120px] m-[5px] sm:m-[23px] text-[15px] sm:text-[25px]"
-                    id="weeks-box"></div>
-                <div class="age-box w-[80px] sm:w-[120px] h-[80px] sm:h-[120px] m-[5px] sm:m-[23px] text-[15px] sm:text-[25px]"
-                    id="days-box"></div>
-                <div class="age-box w-[80px] sm:w-[120px] h-[80px] sm:h-[120px] m-[5px] sm:m-[23px] text-[15px] sm:text-[25px]"
-                    id="hours-box"></div>
-                <div class="age-box w-[80px] sm:w-[120px] h-[80px] sm:h-[120px] m-[5px] sm:m-[23px] text-[15px] sm:text-[25px]"
-                    id="minutes-box"></div>
-                <div class="age-box w-[80px] sm:w-[120px] h-[80px] sm:h-[120px] m-[5px] sm:m-[23px] text-[15px] sm:text-[25px]"
-                    id="seconds-box"></div>
+                <div class="age-box w-[135px] sm:w-[120px] h-[130px] sm:h-[120px] m-[4px] sm:m-[23px] text-[28px] sm:text-[25px]" id="years-box"></div>
+                <div class="age-box w-[135px] sm:w-[120px] h-[130px] sm:h-[120px] m-[4px] sm:m-[23px] text-[28px] sm:text-[25px]" id="months-box"></div>
+                <div class="age-box w-[135px] sm:w-[120px] h-[130px] sm:h-[120px] m-[4px] sm:m-[23px] text-[28px] sm:text-[25px]" id="weeks-box"></div>
+                <div class="age-box w-[135px] sm:w-[120px] h-[130px] sm:h-[120px] m-[4px] sm:m-[23px] text-[28px] sm:text-[25px]" id="days-box"></div>
+                <div class="age-box w-[135px] sm:w-[120px] h-[130px] sm:h-[120px] m-[4px] sm:m-[23px] text-[28px] sm:text-[25px]" id="hours-box"></div>
+                <div class="age-box w-[135px] sm:w-[120px] h-[130px] sm:h-[120px] m-[4px] sm:m-[23px] text-[28px] sm:text-[25px]" id="minutes-box"></div>
+                <div class="age-box w-[135px] sm:w-[120px] h-[130px] sm:h-[120px] m-[4px] sm:m-[23px] text-[28px] sm:text-[25px]" id="seconds-box"></div>
             </div>
 
 
-            <div class="photo-gallery my-5 flex flex-wrap gap-2 sm:gap-5 justify-center">
-                <img class=" w-[140px] sm:w-[230px] h-[100px] sm:h-[240px]" src="bear1.jpeg" alt="Photo 1">
-                <img class=" w-[140px] sm:w-[230px] h-[100px] sm:h-[240px]" src="bear1.jpeg" alt="Photo 2">
-                <img class=" w-[140px] sm:w-[230px] h-[100px] sm:h-[240px]" src="bear1.jpeg" alt="Photo 3">
-                <img class=" w-[140px] sm:w-[230px] h-[100px] sm:h-[240px]" src="bear1.jpeg" alt="Photo 4">
-                <img class=" w-[140px] sm:w-[230px] h-[100px] sm:h-[240px]" src="bear1.jpeg" alt="Photo 3">
-                <img class=" w-[140px] sm:w-[230px] h-[100px] sm:h-[240px]" src="bear1.jpeg" alt="Photo 4">
+            <div class="photo-gallery my-5 flex flex-wrap gap-10 sm:gap-5 justify-center">
+                <img class=" w-[280px] sm:w-[230px] h-[240px] sm:h-[240px]" src="bear1.jpeg" alt="Photo 1">
+                <img class=" w-[280px] sm:w-[230px] h-[240px] sm:h-[240px]" src="bear1.jpeg" alt="Photo 2">
+                <img class=" w-[280px] sm:w-[230px] h-[240px] sm:h-[240px]" src="bear1.jpeg" alt="Photo 3">
+                <img class=" w-[280px] sm:w-[230px] h-[240px] sm:h-[240px]" src="bear1.jpeg" alt="Photo 4">
+                <img class=" w-[280px] sm:w-[230px] h-[240px] sm:h-[240px]" src="bear1.jpeg" alt="Photo 3">
+                <img class=" w-[280px] sm:w-[230px] h-[240px] sm:h-[240px]" src="bear1.jpeg" alt="Photo 4">
                 <!-- <div class="border-2 w-[240px] sm:h-[200px]"></div> -->
 
             </div>
@@ -136,7 +130,7 @@
                     class="text-[30px] px-[32px] py-[14px] bg-[rgba(0,0,0,0.5)] drop-shadow-[0_0_12px_blue] rounded-[22px] hover:text-[#ff2770] font-bold transform transition-transform duration-200 hover:scale-110">
                     Let's Celebrate it</button>
             </div>
-              <div class="my-[18px] w-[80%] mx-[auto] ">
+            <div class="my-[18px] w-[80%] mx-[auto] ">
                 <button
                     class="text-[30px] px-[32px] py-[14px] bg-[rgba(0,0,0,0.5)] drop-shadow-[0_0_12px_blue] rounded-[22px] hover:text-[#ff2770] font-bold transform transition-transform duration-200 hover:scale-110">
                     Let's Celebrate it</button>
