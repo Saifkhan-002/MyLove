@@ -1,0 +1,168 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wish Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            text-align: center;
+            color: white;
+            background: linear-gradient(to top, #4b0404, #f9588e, #ff2770, #000000, #4c1c1c);
+            font-family: Arial, sans-serif;
+            z-index: -1;
+        }
+        /*.age-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }*/
+
+        .age-box {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgb(0, 0, 88);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+        }
+
+        .age-box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px #f25e8f;
+            color: rgb(12, 12, 223);
+            font-weight: bold;
+            background: rgba(233, 227, 227, 0.4);
+        }
+
+        /*.photo-gallery {
+            
+
+            gap: 55px;
+            margin-top: 50px;
+        }*/
+
+        .photo-gallery img {
+            border-radius: 21px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4 ease, box-shadow 0.3s ease;
+        }
+
+        .photo-gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .led-banner {
+            background-color: black;
+            color: #ff2770;
+            border-radius: 21px;
+            border: none;
+            width: 100%;
+            box-shadow: 0 0 25px rgb(0, 0, 88);
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .led-banner span {
+            display: inline-block;
+            position: absolute;
+            white-space: nowrap;
+            will-change: transform;
+            animation: marquee 8s linear infinite alternate;
+
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="pb-[15px] w-[100%]">
+
+        <div class="relative">
+         
+
+
+            <div class="age-container text-[#ff2770] font-black mt-[34px] flex flex-col sm:flex-row  justify-center items-center gap-5 sm:gap-18" id="age-container">
+                <div class="age-box w-[135px] sm:w-[120px] h-[130px] sm:h-[120px] m-[4px] sm:m-[23px] text-[28px] sm:text-[25px]" id="years-box"></div>
+                <div class="age-box w-[135px] sm:w-[120px] h-[130px] sm:h-[120px] m-[4px] sm:m-[23px] text-[28px] sm:text-[25px]" id="months-box"></div>
+                <div class="age-box w-[135px] sm:w-[120px] h-[130px] sm:h-[120px] m-[4px] sm:m-[23px] text-[28px] sm:text-[25px]" id="weeks-box"></div>
+                <div class="age-box w-[135px] sm:w-[120px] h-[130px] sm:h-[120px] m-[4px] sm:m-[23px] text-[28px] sm:text-[25px]" id="days-box"></div>
+                <div class="age-box w-[135px] sm:w-[120px] h-[130px] sm:h-[120px] m-[4px] sm:m-[23px] text-[28px] sm:text-[25px]" id="hours-box"></div>
+                <div class="age-box w-[135px] sm:w-[120px] h-[130px] sm:h-[120px] m-[4px] sm:m-[23px] text-[28px] sm:text-[25px]" id="minutes-box"></div>
+                <div class="age-box w-[135px] sm:w-[120px] h-[130px] sm:h-[120px] m-[4px] sm:m-[23px] text-[28px] sm:text-[25px]" id="seconds-box"></div>
+            </div>
+
+
+            <div class="photo-gallery my-5 grid sm:grid-cols-3 ml-[64px] gap-5 sm:gap-10">
+                <img class=" w-[280px] sm:w-[390px] h-[240px] sm:h-[300px]" src="bear1.jpeg" alt="Photo 1">
+                <img class=" w-[280px] sm:w-[390px] h-[240px] sm:h-[300px]" src="bear1.jpeg" alt="Photo 2">
+                <img class=" w-[280px] sm:w-[390px] h-[240px] sm:h-[300px]" src="bear1.jpeg" alt="Photo 3">
+                <img class=" w-[280px] sm:w-[390px] h-[240px] sm:h-[300px]" src="bear1.jpeg" alt="Photo 4">
+                <img class=" w-[280px] sm:w-[390px] h-[240px] sm:h-[300px]" src="bear1.jpeg" alt="Photo 3">
+                <img class=" w-[280px] sm:w-[390px] h-[240px] sm:h-[300px]" src="bear1.jpeg" alt="Photo 4">
+                <!-- <div class="border-2 w-[240px] sm:h-[200px]"></div> -->
+
+            </div>
+
+            <div class="led-banner h-[60px] sm:h-[90px] mt-[50px] text-[25px] sm:text-[39px]  font-bold ">
+                <span class="mt-[12px]">Yeahh Fine...&#128152</span>
+            </div>
+            <div class="my-[32px] w-[50%] sm:w-[80%] mx-[auto] ">
+                <button
+                    class="text-[18px] sm:text-[30px] px-[18px] sm:px-[32px] py-[14px] bg-[rgba(0,0,0,0.5)] drop-shadow-[0_0_12px_blue] rounded-[22px] hover:text-[#ff2770] font-bold transform transition-transform duration-200 hover:scale-110">
+                    Let's Celebrate it</button>
+            </div>
+           
+            
+        </div>
+    </section>
+
+    <script>
+        function calculateAge() {
+            const birthDate = new Date('2004-03-04'); // Replace with your DOB
+            const today = new Date();
+            const diff = today - birthDate;
+
+            const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+            const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30));
+            const weeks = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24 * 7));
+            const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("years-box").innerHTML = `${years}<br>Years`;
+            document.getElementById("months-box").innerHTML = `${months}<br>Months`;
+            document.getElementById("weeks-box").innerHTML = `${weeks}<br>Weeks`;
+            document.getElementById("days-box").innerHTML = `${days}<br>Days`;
+            document.getElementById("hours-box").innerHTML = `${hours}<br>Hours`;
+            document.getElementById("minutes-box").innerHTML = `${minutes}<br>Minutes`;
+            document.getElementById("seconds-box").innerHTML = `${seconds}<br>Seconds`;
+        }
+
+        setInterval(calculateAge, 1000); // Update Every Second
+        calculateAge();
+    </script>
+
+</body>
+
+</html>

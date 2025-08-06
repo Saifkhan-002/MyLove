@@ -24,7 +24,9 @@
             const container = document.getElementById("age-container");
             container.innerHTML = ''; // Clear previous content
             timeUnits.forEach(unit => {
-                const div = document.createElement("div");
+                // const div = document.createElement("div");
+                // div.classList.add("age-box");
+                const div = document.getElementById("age-box") ;
                 div.classList.add("age-box");
                 div.innerHTML = `${unit.value} <br> ${unit.label}`;
                 container.appendChild(div);
