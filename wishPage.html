@@ -7,12 +7,102 @@
     <title>our memories</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-         body {
+        body {
             text-align: center;
             color: white;
             background: linear-gradient(to bottom, #3b0202, #eb5a8b, #480404);
-            font-family: Arial, sans-serif;
+            
             z-index: -1;
+        }
+
+        .b-text {
+            z-index: 10;
+            animation: fadeInUp 1s ease-in-out;
+            font-family: Pacifico, cursive;
+        }
+
+        .letter {
+            opacity: 0;
+            display: inline-block;
+            animation: fadeIn 3s ease-in-out forwards;
+        }
+
+        .from-top {
+            transform: translateY(-400px);
+            animation-name: fromTop;
+            color: gold;
+        }
+
+        .from-left {
+            transform: translateX(-400px);
+            animation-name: fromLeft;
+            animation-delay: 1s;
+            color: black;
+        }
+
+        .from-right {
+            transform: translateX(400px);
+            animation-name: fromRight;
+            animation-delay: 1.1s;
+            color: gold;
+        }
+
+        .from-bottom {
+            transform: translateY(400px);
+            animation-name: fromBottom;
+            animation-delay: 1.5s;
+            color: black;
+        }
+
+        @keyframes fromTop {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+               
+            }
+
+        }
+
+        @keyframes fromLeft {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes fromRight {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fromBottom {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+        p {
+            animation: fadeInUp 1s ease-in-out forwards;
+            font-family: Popins, cursive;
+            font-weight: 900;
+           
         }
     </style>
 </head>
@@ -20,20 +110,37 @@
 <body>
     <div class="relative">
         <video autoplay muted loop
-            class="absolute top-0 left-[0] z-[-1] w-[100%] sm:w-full sm:h-[100vh] object-cover opacity-30 ">
+            class="absolute top-0 left-[0] z-[-1] w-[100%] sm:w-full h-[100vh] object-cover opacity-20 ">
             <source src="fireworks2.mp4" type="video/mp4">
 
         </video>
-        <div class="z-[10] w-[100%] flex flex-col justify-center h-[100vh]">
-            <h1 class=" text-[35px] sm:text-[78px] text-white font-bold">&#x1F389;Happy Birthday &#x1F389;</h1>
-            <p class="text-[27px] sm:text-[58px]">Client Name</p>
+        <div class=" z-[10] w-[100%] flex flex-col justify-center h-[100vh]">
+            <!-- <h1 class=" text-[35px] sm:text-[78px] text-blue-900 font-bold">&#x1F389;Happy Birthday &#x1F389;</h1> -->
+            <div class="b-text text-[40px] sm:text-[60px] font-bold ">
+                <span class="letter from-top">H</span>
+                <span class="letter from-left">A</span>
+                <span class="letter from-right">P</span>
+                <span class="letter from-bottom">P</span>
+                <span class="letter from-top">Y</span> <br>
+                <span class="letter from-left">B</span>
+                <span class="letter from-right">I</span>
+                <span class="letter from-bottom">R</span>
+                <span class="letter from-top">T</span>
+                <span class="letter from-left">H</span>
+                <span class="letter from-right">D</span>
+                <span class="letter from-bottom">A</span>
+                <span class="letter from-top">Y</span>
+            </div>
+
+            <p class="text-[27px] sm:text-[58px] ">Client Name</p>
             <div class="my-[18px] w-[80%] mx-[auto] ">
                 <button
-                    class="text-[30px] px-[32px] py-[14px] bg-[rgba(0,0,0,0.5)] drop-shadow-[0_0_12px_blue] rounded-[22px] hover:text-[#ff2770] font-bold transform transition-transform duration-200 hover:scale-110">
-                    <a href="memoryPage.html">Welcome to my Heart</a></button>
+                    class="text-[20px] sm:text-[30px] px-[20px] sm:px-[32px] py-[10px] sm:py-[14px] bg-[rgba(0,0,0,0.5)] drop-shadow-[0_0_12px_blue] rounded-[22px] hover:text-[#ff2770] font-bold transform transition-transform duration-200 hover:scale-110">
+                    <a href="memoryPage.html">Welcome to my Heart</a>
+                </button>
             </div>
         </div>
-         
+
 
     </div>
 </body>
