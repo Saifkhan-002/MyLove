@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forever & Always</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Great+Vibes&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { --a1:#18061f;
+       --a2:#370a37; 
+       --a3:#5a0a3d;
+       }
+    html, body {
+       height: 100%; 
+      }
+    body {
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(255, 170, 200, .15), transparent 60%) fixed,
+                  linear-gradient(120deg, var(--a1), var(--a2), var(--a3)) fixed;
+      color: #fff; overflow-x: hidden;
+    }
+
+    /* Floating balloons */
+    .balloon { 
+      position: fixed; 
+      bottom: -20vh;
+      pointer-events: none; 
+      z-index: 1;
+      opacity: .9;
+      filter: drop-shadow(0 8px 18px rgba(255,255,255,.12)); 
+    }
+    .balloon svg { 
+      width: var(--size); 
+      height: var(--size); 
+    }
+    @keyframes rise { 
+      to { transform: translate3d(var(--drift), -120vh, 0) rotate(12deg);
+          opacity: .2;
+         } 
+    }
+
+    /* Heart cursor trail */
+    .trail-heart { 
+      position: fixed;
+      width: 14px;
+      height: 14px; 
+      pointer-events: none; 
+      transform: translate(-50%, -50%); 
+      z-index: 50; 
+    }
+    .trail-heart::before { 
+      content: ""; 
+      width: 100%; 
+      height: 100%; 
+      display: block; 
+      background: radial-gradient(circle at 30% 30%, #ff8fab, #ffd1dc); 
+      clip-path: path("M7,0 C9,-2 14,1 14,6 C14,10 9,12 7,14 C5,12 0,10 0,6 C0,1 5,-2 7,0 Z"); 
+      filter: drop-shadow(0 2px 8px rgba(255, 192, 203, .5)); 
+      opacity: .9; }
+    @keyframes pop { 
+      to { transform: translate(-50%, -80%) scale(0); 
+        opacity: 0; 
+      } 
+    }
+
+    /* Typewriter */
+    .typewriter { 
+      border-right: 2px solid rgba(255,255,255,.6); 
+      white-space: nowrap; 
+      overflow: hidden; 
+    }
+
+    /* Glass */
+    .glass { 
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03)); 
+      backdrop-filter: blur(8px); 
+      border: 1px solid rgba(255,255,255,.16); 
+    }
+
+    /* CTA liquid */
+    .cta { 
+      position: relative; 
+      overflow: hidden; 
+      isolation: isolate; 
+    }
+    .cta::before { 
+      content:""; 
+      position:absolute; 
+      inset:0; 
+      z-index:-1; 
+      background: conic-gradient(from 0deg,#ffd1dc,#ff8fab,#f6b9c9,#ffd1dc); 
+      transform: translateX(-100%); 
+      transition: transform .5s ease; 
+    }
+    .cta:hover::before { 
+      transform: translateX(0); 
+    }
+
+    /* Modal */
+    .modal { 
+      position: fixed; 
+      inset: 0; 
+      display: none; 
+      align-items: center;       
+      z-index: 40; 
+    }
+    .modal.show { 
+      display: flex; 
+    }
+
+    /* Confetti */
+    #confetti { 
+      position: fixed; 
+      inset: 0; 
+      pointer-events: none; 
+      z-index: 30; 
+    }
+  </style>
+</head>
+<body>
+  <!-- Confetti layer -->
+  <canvas id="confetti"></canvas>
+
+  <!-- HERO -->
+  <header class="relative min-h-[90vh] flex items-center justify-center text-center">
+    <!-- soft glows -->
+    <div class="absolute inset-0 -z-0">
+      <div class="absolute -top-16 -left-10 w-80 h-80 rounded-full blur-3xl opacity-30" style="background: radial-gradient(circle,#ff8fab,transparent 60%)"></div>
+      <div class="absolute -bottom-10 -right-10 w-96 h-96 rounded-full blur-3xl opacity-30" style="background: radial-gradient(circle,#c3f0ff,transparent 60%)"></div>
+    </div>
+
+    <div class="z-10 px-6 max-w-3xl">
+      <h1 class="font-['Great_Vibes'] text-6xl sm:text-7xl leading-tight bg-clip-text text-transparent" style="background-image:linear-gradient(90deg,#ffd1dc,#fff,#ff8fab);">Forever & Always</h1>
+      <p id="tw" class="typewriter mt-4 text-base sm:text-lg text-white/80"></p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <button id="openGift" class="cta rounded-2xl px-8 py-3 font-semibold tracking-wide shadow-lg ring-1 ring-white/20 hover:shadow-2xl hover:text-black transition">Open Our Gallery 🎁</button>
+        <a href="index.html" class="rounded-2xl px-8 py-3 font-semibold tracking-wide shadow-lg ring-1 ring-white/20 hover:shadow-2xl transition glass hover:bg-[rgba(0,0,0,0.3)] hover:shadow-[0_0_5px_#ff8fab] ">Back Home</a>
+      </div>
+      <div class="mt-6 ml-[150px] flex items-center gap-3">
+        <button id="playSong" class="rounded-xl px-5 py-2 glass hover:shadow-[0_0_5px_#ff8fab]">Play Song ▷</button>
+        <span id="songTime" class="text-sm text-white/70">00:00</span>
+      </div>
+      <audio id="audio" preload="metadata" loop>
+        <source src="TuHaiSong.mp3" type="audio/mpeg" />
+      </audio>
+    </div>
+  </header>
+
+  <!-- Modal Surprise -->
+  <div id="giftModal" class="modal sm:justify-center">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative z-10 ml-[30px] glass rounded-3xl p-4 sm:p-6 w-[77%] sm:w-[680px] shadow-2xl">
+      <div class="flex items-center justify-between">
+        <h3 class="text-xl sm:text-2xl font-semibold">Our Little Gallery</h3>
+        <button id="closeGift" class="px-3 py-1 rounded-lg glass">✕</button>
+      </div>
+      <div class="mt-4">
+        <div class="relative">
+          <img id="slide" class="rounded-2xl w-full h-[320px] sm:h-[420px] object-cover" src="" alt="Memory" />
+          <button id="prev" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 rounded-full w-10 h-10">‹</button>
+          <button id="next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 rounded-full w-10 h-10">›</button>
+        </div>
+        <p id="caption" class="mt-3 text-center text-white/80"></p>
+      </div>
+      <div class="mt-5 text-center">
+        <a href="celebrate.html" class="cta inline-block rounded-2xl px-8 py-3 font-semibold tracking-wide shadow-lg ring-1 ring-white/20 hover:shadow-2xl hover:text-black transition">This is for uhh My Love 💌</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Letter -->
+  <section id="message" class="py-16 sm:py-24">
+    <div class="container mx-auto px-6 max-w-3xl">
+      <div class="glass rounded-3xl p-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-semibold">A Promise</h2>
+        <p class="mt-4 text-white/80 leading-loose">
+          I promise to keep choosing you — in the quiet mornings and the wild storms, in our laughter and in our lessons. Thank you for being my safe place and my greatest adventure. Here’s to a lifetime of tiny moments that mean everything. 💫
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-10 text-center text-white/60">With all my heart — © <span id="year"></span></footer>
+
+  <script>
+    // YEAR
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Typewriter text
+    const lines = [
+      'Two hearts. One rhythm.',
+      'Every day with you feels like a gift.',
+      'Here\'s to all our tomorrows — together.'
+    ];
+    const tw = document.getElementById('tw');
+    let li = 0, ci = 0, typing = true;
+    function tick(){
+      const full = lines[li];
+      if(typing){ ci++; if(ci > full.length){ typing = false; setTimeout(tick, 1200); return; } }
+      else { ci--; if(ci < 0){ typing = true; li = (li+1)%lines.length; ci = 0; } }
+      tw.textContent = full.slice(0, Math.max(0, ci));
+      setTimeout(tick, typing ? 65 : 30);
+    }
+    tick();
+
+    // Balloons
+    const BALLOON_SVG = `
+    <svg viewBox="0 0 64 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#c3f0ff"/><stop offset="100%" stop-color="#ffd1dc"/></linearGradient></defs>
+      <ellipse cx="32" cy="28" rx="22" ry="26" fill="url(#b)"/>
+      <path d="M32 54c5 0 6-10 6-10H26s1 10 6 10z" fill="#ff8fab"/>
+      <path d="M32 54v30" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+    </svg>`;
+    function balloon(){
+      const el = document.createElement('div');
+      el.className = 'balloon';
+      const size = 28 + Math.random()*28;
+      el.style.setProperty('--size', size+'px');
+      el.style.left = Math.random()*innerWidth + 'px';
+      el.style.setProperty('--drift', (Math.random()*120 - 60) + 'px');
+      el.style.animation = `rise ${8 + Math.random()*8}s linear forwards`;
+      el.innerHTML = BALLOON_SVG;
+      document.body.appendChild(el);
+      setTimeout(()=> el.remove(), 16000);
+    }
+    setInterval(balloon, 600);
+
+    // Heart cursor trail
+    window.addEventListener('pointermove', (e)=>{
+      const h = document.createElement('div');
+      h.className = 'trail-heart';
+      h.style.left = e.clientX + 'px';
+      h.style.top  = e.clientY + 'px';
+      h.style.animation = 'pop .8s ease forwards';
+      document.body.appendChild(h);
+      setTimeout(()=> h.remove(), 800);
+    }, { passive: true });
+
+    // Modal gallery data
+    const pics = [
+      {src:'bear01.gif', cap:'Sunsets and shared whispers'},
+      {src:'bear1.jpeg', cap:'First dates, forever butterflies'},
+      {src:'bear03.gif', cap:'Dreaming up our future'},
+      {src:'bear04.gif', cap:'Life is Beautiful when you are with me'}
+    ];
+    let idx = 0;
+    const modal = document.getElementById('giftModal');
+    const slide = document.getElementById('slide');
+    const caption = document.getElementById('caption');
+    function show(i){ idx = (i + pics.length) % pics.length; slide.src = pics[idx].src; caption.textContent = pics[idx].cap; }
+
+    // Confetti
+    const canvas = document.getElementById('confetti');
+    const ctx = canvas.getContext('2d');
+    let W, H, confetti = [];
+    const COLORS = ['#ffd1dc','#ff8fab','#ffe5ec','#c3f0ff','#fff'];
+    function resize(){ W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
+    addEventListener('resize', resize); resize();
+    function spawnConfetti(n=220){
+      for(let i=0;i<n;i++){
+        confetti.push({ x: Math.random()*W, y: -20 - Math.random()*H, w: 6 + Math.random()*6, h: 10 + Math.random()*12, s: 1 + Math.random()*3, a: Math.random()*Math.PI*2, color: COLORS[(Math.random()*COLORS.length)|0] });
+      }
+    }
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      confetti.forEach(p=>{ p.y += p.s; p.x += Math.sin(p.a+=0.03); ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.a*0.5); ctx.fillStyle=p.color; ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h); ctx.restore(); });
+      confetti = confetti.filter(p=> p.y < H + 40);
+      requestAnimationFrame(draw);
+    }
+    draw();
+
+    document.getElementById('openGift').addEventListener('click', ()=>{
+      show(idx);
+      modal.classList.add('show');
+      spawnConfetti(260);
+    });
+    document.getElementById('closeGift').addEventListener('click', ()=> modal.classList.remove('show'));
+    document.getElementById('prev').addEventListener('click', ()=> show(idx-1));
+    document.getElementById('next').addEventListener('click', ()=> show(idx+1));
+
+    // Audio controls
+    const audio = document.getElementById('audio');
+    const playBtn = document.getElementById('playSong');
+    const timeEl = document.getElementById('songTime');
+    let playing = false;
+    function fmt(t){ 
+      const m = Math.floor(t/60).toString().padStart(2,'0'); 
+      const s = Math.floor(t%60).toString().padStart(2,'0'); 
+      return `${m}:${s}`; 
+    }
+    playBtn.addEventListener('click', async ()=>{
+      if(!playing){ 
+        try{ 
+          await audio.play(); 
+          playing = true; 
+          playBtn.textContent = 'Pause ▌▌'; 
+        } catch(e){ 
+          console.log(e); 
+          } 
+      }
+      else { 
+        audio.pause(); 
+        playing = false; 
+        playBtn.textContent = 'Play Song ▷'; 
+      }
+    });
+    audio.addEventListener('timeupdate', ()=> timeEl.textContent = fmt(audio.currentTime));
+    audio.addEventListener('ended', ()=>{ 
+      playing=false; 
+      playBtn.textContent='Play Song ▷'; 
+    });
+  </script>
+</body>
+</html>
